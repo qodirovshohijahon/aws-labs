@@ -1,38 +1,39 @@
 
 ## Create an Application Load Balancer
 
-- 1. Navigate to **EC2** > **Load Balancers**.
+1. Navigate to **EC2** > **Load Balancers**.
 
-- 2. Click **Create Load Balancer**.
+2. Click **Create Load Balancer**.
 
-- 3. Click the **Create** button under the **Application Load Balancer** and set the following values:
+3. Click the **Create** button under the **Application Load Balancer** and set the following values:
 
-  - Name: HOLALB
-  - Scheme: internet-facing
-  - IP address type: ipv4
-  - Load Balancer Protocol: HTTP
-  - Port: 80
-  - Select the VPC.
-  - Add the us-east-1a and us-east-1b AZs to your ALB.
+     - Name: `HOLALB`
+     - Scheme: `internet-facing`
+     - IP address type: `ipv4`
+     - Load Balancer Protocol: `HTTP`
+     - Port: `80`
+     - Select the VPC.
+     - Add the `us-east-1a` and `us-east-1b` AZs to your ALB.
 
-- 4. Click Next: Configure Security Settings
+4. Click Next: Configure Security Settings
 
-Note: Skip this screen, as we are not using HTTPS.
+        Note: Skip this screen, as we are not using HTTPS.
 
-Click Next: Configure Security Groups.
+5. Click **Next**: **Configure Security Groups**.
 
-Select to Create a new security group for your ALB, and set the following values:
+6. Select to `Create` a `new security group` for your ALB, and set the following values:
 
-Name: ALBSG
-Description: ALBSG
-The default value allows standard HTTP traffic from 0.0.0.0/0 and ::/0 (IPV6), so leave as it.
-Click Next: Configure Routing and enter the following values:
+    - Name: ALBSG
+    - Description: ALBSG
+    - The default value allows standard HTTP traffic from 0.0.0.0/0 and ::/0 (IPV6), so leave as it.
 
-Name: ALBTG
-Target type: Instance
-Protocol: HTTP
-Port: 80
-Expand Advanced health check settings, and reduce the healthy and unhealthy threshold checks down to 2.
+7. Click **Next: Configure Routing** and enter the following values:
+
+   - Name: ALBTG
+   - Target type: Instance
+   - Protocol: HTTP
+   - Port: 80
+   - Expand Advanced health check settings, and reduce the healthy and unhealthy threshold checks down to 2.
 
 This means the load balancer can respond faster and instances come into service and vice versa.
 Click Next: Register Targets.
